@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from 'react';
+import './App.scss';
+import Search from './components/Search';
+import DeckGrid from './components/DeckGrid';
+import { Card } from './types';
 function App() {
+  const [error, setError] = useState('');
+  const [deckData, setDeckData] = useState<Card[]>([]);
+  const fetchResponse = (data: {
+    cards: Card[];
+    success?: boolean;
+    error?: string;
+  }) => {
+    if (data.error) {
+      setError(data.error);
+      return;
+    }
+    setDeckData(data.cards);
+    setError('');
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <h1>Deck search</h1>
       </header>
+      <div>
+        <Search parentalCallback={fetchResponse}></Search>
+        <div className='Error-container'>
+          <p>{error}</p>
+        </div>
+        {deckData ? <DeckGrid cards={deckData}></DeckGrid> : 'No decks'}
+      </div>
     </div>
   );
 }
