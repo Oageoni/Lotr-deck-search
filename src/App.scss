@@ -1,0 +1,147 @@
+@import '~bootstrap/scss/bootstrap';
+.App {
+  text-align: center;
+  background: linear-gradient(180deg, rgb(46, 46, 46), rgb(60, 68, 66));
+  color: white;
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: rgb(29, 29, 29);
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.Search {
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+  position: relative;
+  top: 5vh;
+  font-size: calc(10px + 1vmin);
+}
+.Error-container {
+  position: relative;
+  top: 10vh;
+}
+.Modal {
+  border-radius: 10px;
+}
+
+.Modal-header {
+  background: linear-gradient(45deg, #424242, #3c3c3cd9);
+  color: white;
+  padding: 1rem;
+}
+.Card-modal-body {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(45deg, #181818, #000000c2);
+  padding: 2rem;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  .Card-left {
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(1deg, #141414, #626262e3);
+    padding: 0.2rem;
+    color: white;
+    box-shadow: 1px 1px 7px 4px #00000061;
+    .Lower-box {
+      .Title-box {
+        padding-top: 0.1rem;
+      }
+      .Trait-box {
+        font-weight: 700;
+        font-style: italic;
+      }
+      .Flavor-text-box {
+        font-size: 0.8rem;
+        font-style: italic;
+      }
+    }
+    .Full-img {
+      height: 100%;
+      max-width: 20rem;
+    }
+  }
+  .Card-right {
+    font-size: 1.2rem;
+    flex-direction: column;
+    color: white;
+    padding: 1rem;
+    .Info-block {
+      text-align: left;
+    }
+    .Smaller-text {
+      font-size: 0.9rem;
+    }
+    .Card-text {
+      font-size: 1rem;
+    }
+  }
+}
+.attack::after {
+  content: url('/icons/Sword.svg');
+}
+.willpower::after {
+  content: url('/icons/Willpower.svg');
+}
+.defense::after {
+  content: url('/icons/Shield.svg');
+}
+.health::after {
+  content: url('/icons/Heart.svg');
+}
+.Deck-container {
+  margin-top: 20vh;
+  .row {
+    margin: auto;
+  }
+  .Preview {
+    cursor: pointer;
+    margin: 1rem;
+    background: linear-gradient(180deg, rgb(22, 22, 22), rgb(78, 78, 78));
+    box-shadow: 1px 1px 4px 4px #272727;
+    min-height: 215px;
+    max-width: 25rem;
+  }
+  .Card-img {
+    width: auto;
+    max-height: 15rem;
+    object-fit: cover;
+    object-position: 100% 0;
+    clip-path: polygon(
+      6% 0,
+      93% 0,
+      100% 9%,
+      100% 94%,
+      94% 100%,
+      4% 100%,
+      0 94%,
+      0 8%
+    );
+  }
+}
+.Card-detail-img {
+  background-size: cover;
+  height: 15rem;
+  width: 100%;
+  background-position: top;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 11px 8px #000000dc;
+}
+.Close-btn {
+  background: linear-gradient(180deg, #838383, #282828);
+  border: none;
+  bottom: 2rem;
+  right: 3rem;
+  position: absolute;
+}
